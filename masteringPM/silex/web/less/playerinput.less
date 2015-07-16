@@ -1,0 +1,123 @@
+.playerinput .color-1 {
+    color: #eb7361;
+}
+
+.playerinput .color-2 {
+    color: #3b9bd9;
+}
+
+.playerinput .color-3 {
+    color: #e19e2a;
+}
+
+.playerinput .color-4 {
+    color: #5cb130;
+}
+
+.playerinput .color-5 {
+    color: #364559;
+}
+
+.playerinput .color-6 {
+    color: #afa8a2;
+}
+
+.playerinput input[type=text] {
+    padding: .5em .6em;
+    margin: auto;
+    margin-top: 0.2em;
+    display: block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.playerinput input[type=text]:focus {
+    outline: 0;
+    border-color: #129FEA
+}
+
+@thumb-radius: 100%;
+@thumb-height: 15px;
+@thumb-width: 15px;
+
+@track-height: 5px;
+@track-radius: 5px;
+@contrast: 20%;
+
+
+.track() {
+  height: @track-height;
+  cursor: pointer;
+  animate: 0.2s;
+}
+
+.thumb() {
+  height: @thumb-height;
+  width: @thumb-width;
+  border-radius: @thumb-radius;
+  background: @color-2;
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: @thumb-height/2 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    .track();
+    background: lighten( @color-6, @contrast);
+    border-radius: @track-radius;
+  }
+  
+  &::-webkit-slider-thumb {
+    .thumb();
+    -webkit-appearance: none;
+    margin-top: ((@track-height) / 2) - (@thumb-height / 2);
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: lighten(@color-6, @contrast);
+  }
+
+  &::-moz-range-track {
+    .track();
+    background: lighten( @color-6, @contrast);
+    border-radius: @track-radius;
+  }
+  &::-moz-range-thumb {
+     .thumb();
+  }
+
+  &::-ms-track {
+    .track(); 
+    background: transparent;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: lighten( @color-6, @contrast);
+    border-radius: @track-radius*2;
+  }
+  &::-ms-fill-upper {
+    background: lighten( @color-6, @contrast);
+    border-radius: @track-radius*2;
+  }
+  &::-ms-thumb {
+    .thumb();
+  }
+  &:focus::-ms-fill-lower {
+    background:  lighten( @color-6, @contrast);
+  }
+  &:focus::-ms-fill-upper {
+    background: lighten( @color-6, @contrast);
+  }
+}
